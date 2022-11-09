@@ -15,13 +15,15 @@ namespace Graphs
         public string data { get; set; }
         public List<Vertex> vertexes = new List<Vertex>();
         public List<Edge> edges = new List<Edge>();
+        public bool visited { get; set; }
+        public int distance { get; set; }
 
         public void addVertex(Vertex vertex1, Vertex vertex2, int wei)
         {
             Edge edge = new Edge();
-            edge.weight = wei;
-            edge.vertexIni = vertex1;
-            edge.vertexEnd = vertex2;
+            edge.fee = wei;
+            edge.from = vertex1;
+            edge.to = vertex2;
             edges.Add(edge);
             vertexes.Add(vertex2);
         }
@@ -46,7 +48,7 @@ namespace Graphs
             }
             foreach (Edge e in edges)
             {
-                if (e.vertexIni.data.Equals(data) | e.vertexEnd.data.Equals(data))
+                if (e.from.data.Equals(data) | e.to.data.Equals(data))
                 {
                     ev = e;
                     y += 1;
@@ -69,11 +71,12 @@ namespace Graphs
             }
             foreach (Edge e in edges)
             {
-                if (e.vertexIni.data.Equals(data) | e.vertexEnd.data.Equals(data))
+                if (e.from.data.Equals(data) | e.to.data.Equals(data))
                 {
-                    Console.WriteLine("Edge: " + e.vertexIni.data + " " + e.vertexEnd.data);
+                    Console.WriteLine("Edge: " + e.from.data + " " + e.to.data);
                 }
             }
         }
+
     }
 }

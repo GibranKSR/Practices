@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Act1_Unit1", "Act1_Unit1\Ac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Act2_Unit1", "Act2_Unit1\Act2_Unit1.csproj", "{5BE24DC6-BA08-47B5-8E80-1A0F2472AD60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graphs\Graphs.csproj", "{811E39CB-617E-4B40-9FE6-5E72A890DFFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphs", "Graphs\Graphs.csproj", "{811E39CB-617E-4B40-9FE6-5E72A890DFFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

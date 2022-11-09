@@ -10,9 +10,9 @@ namespace Graphs
 {
     internal class Edge
     {
-        public int weight { get; set; }
-        public Vertex vertexIni = new Vertex();
-        public Vertex vertexEnd = new Vertex();
+        public int fee { get; set; }
+        public Vertex from = new Vertex();
+        public Vertex to = new Vertex();
 
 
        

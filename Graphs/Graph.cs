@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -13,7 +15,7 @@ namespace Graphs
 {
     internal class Graph
     {
-        public Vertex root { get; set; }
+        public Vertex? root { get; set; }
         public List<Vertex> vertexes = new List<Vertex>();
 
         public void insert(Vertex vertex, Vertex onVertex, int wei)
@@ -26,16 +28,10 @@ namespace Graphs
             else
             {
                 Edge edge1 = new Edge();
-                edge1.weight = wei;
-                edge1.vertexIni = onVertex;
-                edge1.vertexEnd = vertex;
+                edge1.fee = wei;
+                edge1.from = onVertex;
+                edge1.to = vertex;
                 onVertex.edges.Add(edge1);
-
-                Edge edge2 = new Edge();
-                edge2.weight = wei;
-                edge2.vertexIni = vertex;
-                edge2.vertexEnd = onVertex;
-                vertex.edges.Add(edge2);
 
                 onVertex.vertexes.Add(vertex);
                 vertex.vertexes.Add(onVertex);
@@ -56,15 +52,6 @@ namespace Graphs
         }
         public void delete(string data)
         {
-            //foreach (Vertex v in vertexes)
-            //{
-            //    if (v.data.Equals(data))
-            //    {
-            //        v.vertexes.Clear();
-            //        v.edges.Clear();
-            //        vertexes.Remove(v);
-            //    }
-            //}
 
             for (int i = 0; i < vertexes.Count; i++)
             {
@@ -79,7 +66,7 @@ namespace Graphs
             {
                 foreach (Edge e in v.edges)
                 {
-                    if (e.vertexEnd.data.Equals(data))
+                    if (e.to.data.Equals(data))
                     {
                         v.edges.Remove(e);
                         break;
@@ -94,16 +81,16 @@ namespace Graphs
             {
                 if (v.data.Equals(data))
                 {
-                    Console.WriteLine("Value found: " + v + " " + v.data);
+                    Console.WriteLine("Value found: " + v.data);
                 }
             }
             foreach (Vertex v in vertexes)
             {
                 foreach (Edge e in v.edges)
                 {
-                    if (e.vertexIni.data.Equals(data) | e.vertexEnd.data.Equals(data))
+                    if (e.from.data.Equals(data) | e.to.data.Equals(data))
                     {
-                        Console.WriteLine("Edge: " + e.vertexIni.data + " " + e.vertexEnd.data);
+                        Console.WriteLine("Edge: " + "[" + e.from.data + "]" + " " + "[" + e.to.data + "]");
                     }
                 }
             }
@@ -112,37 +99,32 @@ namespace Graphs
         {
             foreach (Vertex v in vertexes)
             {
-                Console.WriteLine(v.data);
+                Console.WriteLine("["+v.data+"]");
             }
         }
 
 
         public void matrix()
         {
-            Console.Write(" ");
+            Console.Write("   ");
             for (int i = 0; i < vertexes.Count(); i++)
             {
-                Console.Write(" " + vertexes[i].data);
+                Console.Write(" " +"["+vertexes[i].data+"]");
             }
             for (int i = 0; i < vertexes.Count(); i++)
             {
                 Console.WriteLine(" ");
-                Console.Write(vertexes[i].data);
+                Console.Write("[" + vertexes[i].data + "]");
                 for (int j = 0; j < vertexes.Count(); j++)
                 {
-                    //Console.WriteLine(vertexes[i].data + " " + vertexes[j].data);
 
                     if (vertexes[j].vertexes.Contains(vertexes[i]))
                     {
-                        //Console.Write(vertexes[j].data);
-                        //Console.WriteLine(" ");
-                        Console.Write(" 1");
+                        Console.Write(" [1]");
                     }
                     else
                     {
-                        //Console.Write(vertexes[j].data);
-                        //Console.WriteLine(" ");
-                        Console.Write(" 0");
+                        Console.Write(" [0]");
                     }
                 }
             }
@@ -194,88 +176,181 @@ namespace Graphs
             }
         }
 
-        public void shortestPath(Vertex vertex, Vertex iniVertex)
+
+        public void shortestPath(Vertex vertex, Vertex from)
         {
             List<Vertex> path = new List<Vertex>();
+            List<Vertex> path2 = new List<Vertex>();
             Stack<Vertex> stack = new Stack<Vertex>();
+            Stack<Vertex> vers = new Stack<Vertex>();
+            Vertex vertexs = vertex;
 
-            path.Add(iniVertex);
 
-            string d = vertex.data;
-            Vertex vi = vertex;
-
-            foreach (Vertex v1 in vertexes)
+            foreach (Vertex v in vertex.vertexes)
             {
-                foreach (Vertex v2 in v1.vertexes)
-                {
-                    if (v2.data.Equals(vertex.data))
-                    {
-                        if (!stack.Contains(v1) && !path.Contains(v1))
-                        {
-                            //Console.WriteLine(v1.data);
-                            stack.Push(v1);
-                            path.Add(v1);
-                        }
-                    }
-                }
+                vers.Push(v);
             }
-            foreach (Vertex s in stack)
-            {
-                Console.WriteLine(s.data);
-            }
-            Console.WriteLine(" ");
-            int c = 0;
-            Vertex pre = new Vertex();
+
+            path.Add(vertex);
+            Vertex pred = vertex;
+            stack.Push(vertex);
+
 
             while (stack.Count != 0)
             {
-         
                 vertex = stack.Pop();
-                Console.WriteLine("Pre: " + pre.data);
                 foreach (Vertex v in vertex.vertexes)
                 {
-                    
-                    Console.WriteLine("V: " + v.data);
-                    if (c == 0)
+                    if (!path.Contains(v) && v.vertexes.Contains(pred))
                     {
-                        if (!v.data.Equals(d) && !path.Contains(v) && !v.Equals(iniVertex))
-                        {
-                            c += 1;
-                            pre = v;
-                            stack.Push(v);
-                            path.Add(v);
-                        }
+                        pred = v;
+                        stack.Push(v);
+                        path.Add(v);
                     }
-                    else
-                    {
-                        if (!v.data.Equals(d) && !path.Contains(v) && !v.Equals(iniVertex) && vertex.vertexes.Contains(pre))
-                        {
-                            c += 1;
-                            pre = v;
-                            stack.Push(v);
-                            path.Add(v);
-                        }
-                    }  
                 }
             }
+            int sum = 0;
+            List<Vertex> final = new List<Vertex>();
 
             foreach (Vertex v in path)
             {
-                Console.WriteLine(v.data);
+                final.Add(v);
+                if (v.data.Equals("A"))
+                {
+                    break;
+                }
             }
-            //while (stack.Count != 0)
-            //{
-            //    vertex = stack.Pop();
-            //    Console.WriteLine("next-> " + vertex.data);
-            //    foreach (Vertex v in vertex.vertexes)
-            //    {
-            //        if (!path.Contains(v) && v.data.Equals(vertex.data))
-            //        {
-            //            path.Add(v);
-            //            stack.Push(v);
-            //        }
-            //    }
-            //}
+
+            Console.WriteLine(" ");
+
+            foreach (Vertex v in final)
+            {
+                foreach (Edge e in v.edges)
+                {
+                    if (final.Contains(e.from) && final.Contains(e.to))
+                    {
+                        sum += e.fee;
+                    }
+
+                }
+            }
+
+
+
+
+            int sum2 = 0;
+            List<Vertex> final2 = new List<Vertex>();
+
+            if (vers.Count > 1)
+            {
+                path2.Add(vertexs);
+                vertex = vers.Pop();
+
+                path2.Add(vertex);
+                pred = vertex;
+                stack.Push(vertex);
+
+
+                while (stack.Count != 0)
+                {
+                    vertex = stack.Pop();
+                    foreach (Vertex v in vertex.vertexes)
+                    {
+                        if (!path2.Contains(v) && v.vertexes.Contains(pred))
+                        {
+                            pred = v;
+                            stack.Push(v);
+                            path2.Add(v);
+                        }
+                    }
+                }
+                foreach (Vertex v in path2)
+                {
+                    final2.Add(v);
+                    if (v.data.Equals("A"))
+                    {
+                        break;
+                    }
+                }
+
+                Console.WriteLine(" ");
+                foreach (Vertex v in final2)
+                {
+                    foreach (Edge e in v.edges)
+                    {
+                        if (final2.Contains(e.from) && final2.Contains(e.to))
+                        {
+                            sum2 += e.fee;
+                        }
+
+                    }
+                }
+            }
+
+
+
+            Console.WriteLine(" ");
+            if (sum < sum2)
+            {
+                foreach (Vertex v in path)
+                {
+                    Console.WriteLine(v.data);
+                    if (v.data.Equals("A"))
+                    {
+                        break;
+                    }
+                }
+
+                Console.WriteLine(" ");
+
+                foreach (Vertex v in final)
+                {
+                    foreach (Edge e in v.edges)
+                    {
+                        if (final.Contains(e.from) && final.Contains(e.to))
+                        {
+                            Console.WriteLine(e.from.data + "-> " + e.fee + " <-" + e.to.data);
+                        }
+
+                    }
+                }
+                Console.WriteLine(" ");
+                Console.WriteLine(sum);
+            }
+
+
+            if (sum2 < sum)
+            {
+                foreach (Vertex v in path2)
+                {
+                    Console.WriteLine(v.data);
+                    if (v.data.Equals("A"))
+                    {
+                        break;
+                    }
+                }
+
+                Console.WriteLine(" ");
+                foreach (Vertex v in final2)
+                {
+                    foreach (Edge e in v.edges)
+                    {
+                        if (final2.Contains(e.from) && final2.Contains(e.to))
+                        {
+                            Console.WriteLine(e.from.data + "-> " + e.fee + " <-" + e.to.data);
+                        }
+
+                    }
+                }
+                Console.WriteLine(" ");
+                Console.WriteLine(sum2);
+            }
+
+
+            if (sum == sum2)
+            {
+                Console.WriteLine(sum + " " + sum2);
+            }
 
         }
     }
