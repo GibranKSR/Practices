@@ -1,4 +1,6 @@
 ﻿using Avalonia;
+using Avalonia.Input;
+using Avalonia.Interactivity;
 using System;
 
 namespace MyApp
