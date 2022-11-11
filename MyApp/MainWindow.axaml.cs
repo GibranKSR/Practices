@@ -10,6 +10,10 @@ namespace MyApp
             InitializeComponent();
         }
 
+        public void exit(object sender, RoutedEventArgs e)
+        {
+            UI.Close();
+        }
         public void iniTree(object sender, RoutedEventArgs e)
         {
             UI1.IsVisible = false;
@@ -17,6 +21,12 @@ namespace MyApp
         }
 
         public void iniGraph(object sender, RoutedEventArgs e)
+        {
+            UI1.IsVisible = false;
+            UI3.IsVisible = true;
+        }
+
+        public void addNode(object sender, RoutedEventArgs e)
         {
             UI1.IsVisible = false;
             UI3.IsVisible = true;
