@@ -31,5 +31,10 @@ namespace MyApp
             UI1.IsVisible = false;
             UI3.IsVisible = true;
         }
+        public void addGN(object sender, RoutedEventArgs e)
+        {
+            UI3.IsVisible = false;
+            UI3_2.IsVisible = true;
+        }
     }
 }
