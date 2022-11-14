@@ -10,330 +10,189 @@
 		Background="#101820"
 		ExtendClientAreaToDecorationsHint="True"
 		ExtendClientAreaChromeHints="NoChrome"
-		ExtendClientAreaTitleBarHeightHint="-1">
+		ExtendClientAreaTitleBarHeightHint="-1"
+		WindowStartupLocation="CenterScreen">
 
-	<StackPanel>
-		
-		<!--UI1-->
-		
-		<Grid Name="UI1" 
-			  IsVisible="True" 
-			  RowDefinitions="Auto, *, Auto">
-			
-			  <!--Title-->
-			
-			<Grid Grid.Row="0" 
-				  Height="110" 
-				  ColumnDefinitions="*">
-				<Label Background="#FEE715" 
-					  VerticalAlignment="Center" 
-					  HorizontalAlignment="Center" 
-					  FontSize="40" Foreground="#101820" 
-					  FontWeight="Black">C#/AVALONIA UI BY GIBRÁN SOTO
-				</Label>
-			</Grid> 
-			
-			<!--Buttons-->
-			
-			<Grid Grid.Row="1" 
-				  ColumnDefinitions="*,230,230,*">
-				<Button Grid.Column="1" 
-						Background="#FEE715" 
-						Foreground="#101820" 
-						FontSize="60" 
-						FontWeight="Black" 
-						HorizontalAlignment="Center" 
-						Click="iniTree">
-					TREES
-				</Button>
-				<Button Grid.Column="2" 
-						Background="#FEE715" 
-						Foreground="#101820" 
-						FontSize="60" 
-						FontWeight="Black" 
-						HorizontalAlignment="Center" 
-						Click="iniGraph">
-					GRAPH
-				</Button>
-			</Grid>
-			
-			<!--Bottom-->
-			
-			<Grid Grid.Row="2" 
-				  Height="38">
-				<Button Grid.Row="0"
-							Background="#FEE715"
-							Foreground="#101820"
-							FontWeight="Black"
-							HorizontalContentAlignment="Center"
-							HorizontalAlignment="Right"
-							Margin="5,5,5,5"
-							Click="exit">
-					EXIT
-				</Button>
-			</Grid>
-		</Grid>
+	<Grid>
+		<StackPanel>
 
-		<!--UI2(TREES)-->
+			<!--UI1-->
 
-		<Grid Name="UI2" 
-			  IsVisible="False" 
-			  RowDefinitions="Auto, *, *, Auto">
-			
-			<!--Title-->
-			
-			<Grid Grid.Row="0" 
-				  Height="110" 
-				  ColumnDefinitions="*">
-				<Label Background="#FEE715" 
-					   VerticalAlignment="Center" 
-					   HorizontalAlignment="Center" 
-					   FontSize="40" 
-					   Foreground="#101820" 
-					   FontWeight="Black">TREES BY GIBRÁN SOTO
-				</Label>
-			</Grid>
-			
-			<!--Content-->
-			
-			<Grid Grid.Row="1" 
-				  ColumnDefinitions="*, Auto, 5, Auto, *">
-				<Grid Grid.Column="1" 
-					  RowDefinitions="Auto, 5, Auto, 5, Auto">
-					<Button Grid.Row="0" 
-							Width="176" 
-							Background="#FEE715" 
-							Foreground="#101820" 
-							FontSize="30" 
-							FontWeight="Black" 
-							HorizontalContentAlignment="Center"
-							Click="addNode">
-						ADD NODE
-					</Button>
-					<Button Grid.Row="2" 
-							Width="176" 
-							Background="#FEE715" 
-							Foreground="#101820" 
-							FontSize="30" 
-							FontWeight="Black" 
-							HorizontalContentAlignment="Center">
-						REMOVE 
-					</Button>
-					<Button Grid.Row="4" 
-							Width="176" 
-							Background="#FEE715" 
-							Foreground="#101820"
-							FontSize="30"
-							FontWeight="Black"
-							HorizontalContentAlignment="Center">
-						SEARCH
-					</Button>
-				</Grid>
-				<Grid Grid.Column="3" 
-					  RowDefinitions="Auto, 5, Auto, 5, Auto">
-					<TextBox Grid.Row="0" 
-							 Width="176"
-							 Height="50"
-							 BorderBrush="#FEE715" 
-							 BorderThickness="2" 
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 Watermark="NUMBER"
-							 TextAlignment="Center"
-							 FontSize="30"/>
-					<TextBox Grid.Row="2"
-							 Width="176" 
-							 Height="50"
-							 BorderBrush="#FEE715" 
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 Watermark="NODE"
-							 TextAlignment="Center"
-							 FontSize="30"/>
-					<TextBox Grid.Row="4"
-							 Width="176"
-							 Height="50"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 Watermark="NODE"
-							 TextAlignment="Center"
-							 FontSize="30"/>
-				</Grid>
-			</Grid>
-			<Grid Grid.Row="2"
-				  RowDefinitions="5, Auto"
-				   ColumnDefinitions="*, Auto, 5, Auto, *">
-				<Button Grid.Row="1"
-						Grid.Column="1"
-						Width="176"
-						Background="#FEE715"
-						Foreground="#101820"
-						FontSize="30"
-						FontWeight="Black"
-						HorizontalAlignment="Center"
-						HorizontalContentAlignment="Center">
-					HEIGHT
-				</Button>
-				<Button Grid.Row="1"
-						Grid.Column="3"
-						Width="176"
-						Background="#FEE715"
-						Foreground="#101820"
-						FontSize="30"
-						FontWeight="Black"
-						HorizontalAlignment="Center"
-						HorizontalContentAlignment="Center">
-					PRINT
-				</Button>
-			</Grid>
-			
-			<!--Bottom-->
-			
-			<Grid Grid.Row="3" 
-				  Height="38">
-				<Button Grid.Row="0"
-							Background="#FEE715"
-							Foreground="#101820"
-							FontWeight="Black"
-							HorizontalContentAlignment="Center"
-							HorizontalAlignment="Right"
-							Margin="5,5,5,5"
-							Click="exit">
-					EXIT
-				</Button>
-			</Grid>
-		</Grid>
+			<Grid Name="UI1"
+					IsVisible="True"
+					RowDefinitions="Auto, *, Auto">
 
-		<!--UI3(GRAPHS)-->
+				<!--Title-->
 
-		<Grid Name="UI3"
-			  IsVisible="False"
-			  RowDefinitions="Auto, *, Auto">
-
-			<!--Title-->
-
-			<Grid Grid.Row="0"
-				  Height="110"
-				  ColumnDefinitions="*">
-				<Label Background="#FEE715"
-					   VerticalAlignment="Center"
-					   HorizontalAlignment="Center"
-					   FontSize="40"
-					   Foreground="#101820"
-					   FontWeight="Black">
-					GRAPHS BY GIBRÁN SOTO
-				</Label>
-			</Grid>
-
-			<!--Buttons-->
-
-			<Grid Grid.Row="1"
-				  RowDefinitions="Auto, 10, Auto, 10, Auto">
-				<Grid Grid.Row="0">
-					<Label HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   FontWeight="Black"
-						   FontSize="15"
-						   Background="#FEE715"
-						   Foreground="#101820">
-						This UI was made for graphs with 9 nodes&#x0d;              (ONLY LETTERS ALLOWED)
+				<Grid Grid.Row="0"
+						Height="110"
+						ColumnDefinitions="*">
+					<Label Background="#FEE715"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							FontSize="40" Foreground="#101820"
+							FontWeight="Black">
+						C#/AVALONIA UI BY GIBRÁN SOTO
 					</Label>
 				</Grid>
+
+				<!--Buttons-->
+
+				<Grid Grid.Row="1"
+						ColumnDefinitions="*,230,230,*">
+					<Button Grid.Column="1"
+							Background="#FEE715"
+							Foreground="#101820"
+							FontSize="60"
+							FontWeight="Black"
+							HorizontalAlignment="Center"
+							Click="iniTree">
+						TREES
+					</Button>
+					<Button Grid.Column="2"
+							Background="#FEE715"
+							Foreground="#101820"
+							FontSize="60"
+							FontWeight="Black"
+							HorizontalAlignment="Center"
+							Click="iniGraph">
+						GRAPH
+					</Button>
+				</Grid>
+
+				<!--Bottom-->
+
 				<Grid Grid.Row="2"
-					  ColumnDefinitions="*, Auto, 5, Auto, 5, Auto, *">
+						Height="38">
+					<Button Grid.Row="0"
+								Background="#FEE715"
+								Foreground="#101820"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								HorizontalAlignment="Right"
+								Margin="5,5,5,5"
+								Click="exit">
+						EXIT
+					</Button>
+				</Grid>
+			</Grid>
+
+			<!--UI2(TREES)-->
+
+			<Grid Name="UI2"
+					IsVisible="false"
+					RowDefinitions="Auto, *, *, Auto">
+
+				<!--Title-->
+
+				<Grid Grid.Row="0"
+						Height="110"
+						ColumnDefinitions="*">
+					<Label Background="#FEE715"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							FontSize="40"
+							Foreground="#101820"
+							FontWeight="Black">
+						TREES BY GIBRÁN SOTO
+					</Label>
+				</Grid>
+
+				<!--Content-->
+
+				<Grid Grid.Row="1"
+						ColumnDefinitions="*, Auto, 5, Auto, *">
 					<Grid Grid.Column="1"
-						  RowDefinitions="Auto, 5, Auto, 5,  Auto">
-						<TextBox Grid.Row="0"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
-						<TextBox Grid.Row="2"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
-						<TextBox Grid.Row="4"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
+							RowDefinitions="Auto, 5, Auto, 5, Auto">
+						<Button Grid.Row="0"
+								Width="176"
+								Background="#FEE715"
+								Foreground="#101820"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								Click="addNode">
+							ADD NODE
+						</Button>
+						<Button Grid.Row="2"
+								Width="176"
+								Background="#FEE715"
+								Foreground="#101820"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								Click="removeNT">
+							REMOVE
+						</Button>
+						<Button Grid.Row="4"
+								Width="176"
+								Background="#FEE715"
+								Foreground="#101820"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								Click="searchNT">
+							SEARCH
+						</Button>
 					</Grid>
 					<Grid Grid.Column="3"
-						  RowDefinitions="Auto, 5, Auto, 5,  Auto">
-						<TextBox Grid.Row="0"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
-						<TextBox Grid.Row="2"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
-						<TextBox Grid.Row="4"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
-					</Grid>
-					<Grid Grid.Column="5"
-						  RowDefinitions="Auto, 5, Auto, 5,  Auto">
-						<TextBox Grid.Row="0"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
-						<TextBox Grid.Row="2"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
-						<TextBox Grid.Row="4"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 TextAlignment="Center"
-							 FontSize="40"/>
+							RowDefinitions="Auto, 5, Auto, 5, Auto">
+						<TextBox Name="addNodeNum"
+								Grid.Row="0"
+								Width="176"
+								Height="50"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="NUMBER"
+								TextAlignment="Center"
+								FontSize="30"/>
+						<TextBox Name="remNodeNum"
+							    Grid.Row="2"
+								Width="176"
+								Height="50"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="NODE"
+								TextAlignment="Center"
+								FontSize="30"/>
+						<TextBox Name="seaNodeNum"
+								Grid.Row="4"
+								Width="176"
+								Height="50"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="NODE"
+								TextAlignment="Center"
+								FontSize="30"/>
 					</Grid>
 				</Grid>
-				<Grid Grid.Row="4">
-					<Button Background="#FEE715"
+				<Grid Grid.Row="2"
+						RowDefinitions="5, Auto">
+					<Button Grid.Row="1"
+							Width="176"
+							Background="#FEE715"
 							Foreground="#101820"
 							FontSize="30"
 							FontWeight="Black"
 							HorizontalAlignment="Center"
-							Click="addGN">
-						ADD
+							HorizontalContentAlignment="Center"
+							Click="printTree">
+						PRINT
 					</Button>
 				</Grid>
-			</Grid>
 
-			<!--Bottom-->
+				<!--Bottom-->
 
-			<Grid Grid.Row="2"
-				  Height="38">
-				<Button Grid.Row="0"
+				<Grid Grid.Row="3"
+						Height="38">
+					<Button Name="defCLose1"
+							Grid.Row="0"
 							Background="#FEE715"
 							Foreground="#101820"
 							FontWeight="Black"
@@ -341,127 +200,147 @@
 							HorizontalAlignment="Right"
 							Margin="5,5,5,5"
 							Click="exit">
-					EXIT
-				</Button>
-			</Grid>
-		</Grid>
-
-		<!--UI3(GRAPHS)_2-->
-		
-		<Grid Name="UI3_2"
-			  IsVisible="False"
-			  RowDefinitions="Auto, *, Auto, Auto">
-
-			<!--Title-->
-
-			<Grid Grid.Row="0"
-				  Height="110"
-				  ColumnDefinitions="*">
-				<Label Background="#FEE715"
-					   VerticalAlignment="Center"
-					   HorizontalAlignment="Center"
-					   FontSize="40"
-					   Foreground="#101820"
-					   FontWeight="Black">
-					GRAPHS BY GIBRÁN SOTO
-				</Label>
+						EXIT
+					</Button>
+				</Grid>
 			</Grid>
 
-			<!--Buttons-->
+			<!--UI3(GRAPHS)-->
 
-			<Grid Grid.Row="1"
-				  ColumnDefinitions="*, Auto, 5, Auto, *">
-				<Grid Grid.Column="1"
-					  RowDefinitions="Auto, 5, Auto, 5, Auto">
+			<Grid Name="UI3"
+					IsVisible="False"
+					RowDefinitions="Auto, *, Auto">
+
+				<!--Title-->
+
+				<Grid Grid.Row="0"
+						Height="110"
+						ColumnDefinitions="*">
+					<Label Background="#FEE715"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							FontSize="40"
+							Foreground="#101820"
+							FontWeight="Black">
+						GRAPHS BY GIBRÁN SOTO
+					</Label>
+				</Grid>
+
+				<!--Buttons-->
+
+				<Grid Grid.Row="1"
+						RowDefinitions="Auto, 10, Auto, 10, Auto">
+					<Grid Grid.Row="0">
+						<Label HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								FontWeight="Black"
+								FontSize="15"
+								Background="#FEE715"
+								Foreground="#101820">
+							This UI was made for graphs with 9 nodes&#x0d;              (ONLY LETTERS ALLOWED)
+						</Label>
+					</Grid>
+					<Grid Grid.Row="2"
+							ColumnDefinitions="*, Auto, 5, Auto, 5, Auto, *">
+						<Grid Grid.Column="1"
+								RowDefinitions="Auto, 5, Auto, 5,  Auto">
+							<TextBox Name="GN1"
+									Grid.Row="0"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+							<TextBox Name="GN2"
+									Grid.Row="2"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+							<TextBox Name="GN3"
+									Grid.Row="4"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+						</Grid>
+						<Grid Grid.Column="3"
+								RowDefinitions="Auto, 5, Auto, 5,  Auto">
+							<TextBox Name="GN4"
+									Grid.Row="0"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+							<TextBox Name="GN5"
+									Grid.Row="2"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+							<TextBox Name="GN6"
+									Grid.Row="4"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+						</Grid>
+						<Grid Grid.Column="5"
+								RowDefinitions="Auto, 5, Auto, 5,  Auto">
+							<TextBox Name="GN7"
+									Grid.Row="0"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+							<TextBox Name="GN8"
+									Grid.Row="2"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+							<TextBox Name="GN9"
+									Grid.Row="4"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									TextAlignment="Center"
+									FontSize="40"/>
+						</Grid>
+					</Grid>
+					<Grid Grid.Row="4">
+						<Button Background="#FEE715"
+								Foreground="#101820"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalAlignment="Center"
+								Click="addGN">
+							ADD
+						</Button>
+					</Grid>
+				</Grid>
+
+				<!--Bottom-->
+
+				<Grid Grid.Row="2"
+						Height="38">
 					<Button Grid.Row="0"
-							Width="176"
-							Background="#FEE715"
-							Foreground="#101820"
-							FontSize="47"
-							FontWeight="Black"
-							HorizontalContentAlignment="Center"
-							Click="addNode">
-						EDGE
-					</Button>
-					<Button Grid.Row="2"
-							Width="176"
-							Background="#FEE715"
-							Foreground="#101820"
-							FontSize="30"
-							FontWeight="Black"
-							HorizontalContentAlignment="Center">
-						SEARCH
-					</Button>
-					<Button Grid.Row="4"
-							Width="176"
-							Background="#FEE715"
-							Foreground="#101820"
-							FontSize="30"
-							FontWeight="Black"
-							HorizontalContentAlignment="Center">
-						BFS/DFS
-					</Button>
-				</Grid>
-				<Grid Grid.Column="3"
-					  RowDefinitions="Auto, 1, Auto, 5, Auto, 5, Auto">
-					<TextBox Grid.Row="0"
-							 Width="176"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 Watermark="FROM"
-							 TextAlignment="Center"
-							 FontSize="15"/>
-					<TextBox Grid.Row="2"
-							 Width="176"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 Watermark="TO"
-							 TextAlignment="Center"
-							 FontSize="15"/>
-					<TextBox Grid.Row="4"
-							 Width="176"
-							 Height="50"
-							 BorderBrush="#FEE715"
-							 BorderThickness="2"
-							 Background="#101820"
-							 Foreground="#FEE715"
-							 Watermark="NODE"
-							 TextAlignment="Center"
-							 FontSize="30"/>
-					<Button Grid.Row="6"
-							Width="176"
-							Background="#FEE715"
-							Foreground="#101820"
-							FontSize="30"
-							FontWeight="Black"
-							HorizontalContentAlignment="Center">
-						SHORT P.
-					</Button>
-				</Grid>
-			</Grid>
-			<Grid Grid.Row="2"
-				  RowDefinitions="5, Auto">
-				<Button Grid.Row="1"
-						Width="176"
-						Background="#FEE715"
-						Foreground="#101820"
-						FontSize="30"
-						FontWeight="Black"
-						HorizontalAlignment="Center"
-						HorizontalContentAlignment="Center">
-					PRINT
-				</Button>
-			</Grid>
-
-			<!--Bottom-->
-
-			<Grid Grid.Row="3"
-				  Height="38">
-				<Button Grid.Row="0"
 							Background="#FEE715"
 							Foreground="#101820"
 							FontWeight="Black"
@@ -469,10 +348,250 @@
 							HorizontalAlignment="Right"
 							Margin="5,5,5,5"
 							Click="exit">
-					EXIT
-				</Button>
+						EXIT
+					</Button>
+				</Grid>
 			</Grid>
+
+			<!--UI3(GRAPHS)_2-->
+
+			<Grid Name="UI3_2"
+					IsVisible="False"
+					RowDefinitions="Auto, *, Auto">
+
+				<!--Title-->
+
+				<Grid Grid.Row="0"
+						Height="110"
+						ColumnDefinitions="*">
+					<Label Background="#FEE715"
+							VerticalAlignment="Center"
+							HorizontalAlignment="Center"
+							FontSize="40"
+							Foreground="#101820"
+							FontWeight="Black">
+						GRAPHS BY GIBRÁN SOTO
+					</Label>
+				</Grid>
+
+				<!--Buttons-->
+
+				<Grid Grid.Row="1"
+						RowDefinitions="Auto, 5, Auto, 5, Auto, 5, Auto">
+					<Grid Grid.Row="0"
+							ColumnDefinitions="*, Auto, 5, Auto, 5, Auto, *">
+						<Button Grid.Column="1"
+								Background="#FEE715"
+								Foreground="#101820"
+								Width="176"
+								Height="73"
+								FontSize="47"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								VerticalContentAlignment="Center"
+								Click="addEdge">
+							EDGE
+						</Button>
+						<Grid Grid.Column="3"
+								RowDefinitions="Auto, 3, Auto">
+							<TextBox Name="to"
+								Grid.Row="0"
+								Width="176"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="FROM"
+								TextAlignment="Center"
+								FontSize="15"/>
+							<TextBox Name="from"
+								Grid.Row="2"
+								Width="176"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="TO"
+								TextAlignment="Center"
+								FontSize="15"/>
+						</Grid>
+						<Grid Grid.Column="5">
+							<TextBox Name="fee"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="$"
+								TextAlignment="Center"
+								FontSize="47"/>
+						</Grid>
+					</Grid>
+					<Grid Grid.Row="2"
+							ColumnDefinitions="*, Auto, 5, Auto, *">
+						<Button Grid.Column="1"
+								Background="#FEE715"
+								Foreground="#101820"
+								Width="176"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								Click="searchGN">
+							SEARCH
+						</Button>
+						<TextBox Grid.Column="3"
+									Width="176"
+									BorderBrush="#FEE715"
+									BorderThickness="2"
+									Background="#101820"
+									Foreground="#FEE715"
+									Watermark="NODE"
+									TextAlignment="Center"
+									FontSize="28"/>
+						</Grid>
+					<Grid Grid.Row="4"
+							ColumnDefinitions="*, Auto, 5, Auto, *">
+						<Button Grid.Column="1"
+								Background="#FEE715"
+								Foreground="#101820"
+								Width="176"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								Click="bfs_dfs">
+							BFS/DFS
+						</Button>
+						<Button Grid.Column="3"
+								Background="#FEE715"
+								Foreground="#101820"
+								Width="176"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								Click="shortest">
+							SHORT P.
+						</Button>
+					</Grid>
+					<Grid Grid.Row="6">
+						<Button Background="#FEE715"
+								Foreground="#101820"
+								Width="176"
+								FontSize="30"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								HorizontalAlignment="Center"
+								Click="printGraph">
+							PRINT
+						</Button>
+					</Grid>
+				</Grid>
+				
+
+				<!--Bottom-->
+
+				<Grid Grid.Row="3"
+						Height="38">
+					<Button Name="defCLose2"
+							Grid.Row="0"
+							Background="#FEE715"
+							Foreground="#101820"
+							FontWeight="Black"
+							HorizontalContentAlignment="Center"
+							HorizontalAlignment="Right"
+							Margin="5,5,5,5"
+							Click="exit">
+						EXIT
+					</Button>
+				</Grid>
+			</Grid>
+		</StackPanel>
+		
+		<!--RES-->
+
+		<Grid IsVisible="False"
+			  RowDefinitions="*, Auto"
+			  Name="RES"
+			  Width="600"
+			  Height="310"
+			  Background="#0c1115"
+			  HorizontalAlignment="Center"
+			  VerticalAlignment="Center">
+			<Grid Name="SNT"
+				  IsVisible="False"
+				  Grid.Row="0">
+				<TextBlock Name="SNTR"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+			</Grid>
+			<Grid Name="PT"
+				  IsVisible="False"
+				  Grid.Row="0"
+				  RowDefinitions="Auto, Auto, Auto, Auto">
+				<TextBlock Name="PTR1"
+						   Grid.Row="0"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="PTR2"
+						   Grid.Row="1"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+					binaryTree.InOrderTraversal();
+				</TextBlock>
+				<TextBlock Name="PTR3"
+						   Grid.Row="2"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="PTR4"
+						   Grid.Row="4"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+			</Grid>
+			<Grid Name="PG"
+				  IsVisible="False"
+				  Grid.Row="0">
+				<TextBlock Name="PGR"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+			</Grid>
+			<Button Grid.Row="1"
+					Background="#FEE715"
+					Foreground="#101820"
+					FontWeight="Black"
+					HorizontalAlignment="Right"
+					HorizontalContentAlignment="Center"
+					Margin="2,2,2,2"
+					Click="closeRes">
+				EXIT
+			</Button>
 		</Grid>
-	</StackPanel>
+	</Grid>
 
 </Window>

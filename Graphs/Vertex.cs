@@ -10,7 +10,7 @@ using Graphs;
 
 namespace Graphs
 {
-    internal class Vertex
+    public class Vertex
     {
         public string data { get; set; }
         public List<Vertex> vertexes = new List<Vertex>();

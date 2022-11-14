@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Graphs
 {
-    internal class Graph
+    public class Graph
     {
         public Vertex? root { get; set; }
         public List<Vertex> vertexes = new List<Vertex>();

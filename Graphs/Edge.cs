@@ -8,7 +8,7 @@ using Graphs;
 
 namespace Graphs
 {
-    internal class Edge
+    public class Edge
     {
         public int fee { get; set; }
         public Vertex from = new Vertex();
