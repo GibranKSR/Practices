@@ -134,7 +134,7 @@ namespace Graphs
 
         public void matrix()
         {
-            M1[0] = "   ";
+            M1[0] = "      ";
             for (int i = 1; i <= vertexes.Count(); i++)
             {
                 M1[i] = " " + "[" + vertexes[i-1].data + "]";
@@ -144,96 +144,96 @@ namespace Graphs
                 if (i == 0)
                 {
                     M2[0] = "[" + vertexes[i].data + "]";
-                    for (int j = 1; j < vertexes.Count(); j++)
+                    for (int j = 0; j < vertexes.Count(); j++)
                     {
 
                         if (vertexes[j].vertexes.Contains(vertexes[i]))
                         {
-                            M2[j] = " [1]";
+                            M2[j+1] = " [1]";
                         }
                         else
                         {
-                            M2[j] = " [0]";
+                            M2[j+1] = " [0]";
                         }
                     }
                 }
                 if (i == 1)
                 {
                     M3[0] = "[" + vertexes[i].data + "]";
-                    for (int j = 1; j < vertexes.Count(); j++)
+                    for (int j = 0; j < vertexes.Count(); j++)
                     {
 
                         if (vertexes[j].vertexes.Contains(vertexes[i]))
                         {
-                            M3[j] = " [1]";
+                            M3[j + 1] = " [1]";
                         }
                         else
                         {
-                            M3[j] = " [0]";
+                            M3[j + 1] = " [0]";
                         }
                     }
                 }
                 if (i == 2)
                 {
                     M4[0] = "[" + vertexes[i].data + "]";
-                    for (int j = 1; j < vertexes.Count(); j++)
+                    for (int j = 0; j < vertexes.Count(); j++)
                     {
 
                         if (vertexes[j].vertexes.Contains(vertexes[i]))
                         {
-                            M4[j] = " [1]";
+                            M4[j+1] = " [1]";
                         }
                         else
                         {
-                            M4[j] = " [0]";
+                            M4[j+1] = " [0]";
                         }
                     }
                 }
                 if (i == 3)
                 {
                     M5[0] = "[" + vertexes[i].data + "]";
-                    for (int j = 1; j < vertexes.Count(); j++)
+                    for (int j = 0; j < vertexes.Count(); j++)
                     {
 
                         if (vertexes[j].vertexes.Contains(vertexes[i]))
                         {
-                            M5[j] = " [1]";
+                            M5[j+1] = " [1]";
                         }
                         else
                         {
-                            M5[j] = " [0]";
+                            M5[j+1] = " [0]";
                         }
                     }
                 }
                 if (i == 4)
                 {
                     M6[0] = "[" + vertexes[i].data + "]";
-                    for (int j = 1; j < vertexes.Count(); j++)
+                    for (int j = 0; j < vertexes.Count(); j++)
                     {
 
                         if (vertexes[j].vertexes.Contains(vertexes[i]))
                         {
-                            M6[j] = " [1]";
+                            M6[j + 1] = " [1]";
                         }
                         else
                         {
-                            M6[j] = " [0]";
+                            M6[j + 1] = " [0]";
                         }
                     }
                 }
                 if (i == 5)
                 {
                     M7[0] = "[" + vertexes[i].data + "]";
-                    for (int j = 1; j < vertexes.Count(); j++)
+                    for (int j = 0; j < vertexes.Count(); j++)
                     {
 
                         if (vertexes[j].vertexes.Contains(vertexes[i]))
                         {
-                            M7[j] = " [1]";
+                            M7[j+1] = " [1]";
                         }
                         else
                         {
-                            M7[j] = " [0]";
+                            M7[j+1] = " [0]";
                         }
                     }
                 }
