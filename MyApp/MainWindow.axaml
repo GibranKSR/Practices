@@ -237,7 +237,7 @@
 								FontSize="15"
 								Background="#FEE715"
 								Foreground="#101820">
-							This UI was made for graphs with 9 nodes&#x0d;              (ONLY LETTERS ALLOWED)
+							This UI was made for graphs with 6 nodes&#x0d;              (ONLY LETTERS ALLOWED)
 						</Label>
 					</Grid>
 					<Grid Grid.Row="2"
@@ -260,18 +260,10 @@
 									Foreground="#FEE715"
 									TextAlignment="Center"
 									FontSize="40"/>
-							<TextBox Name="GN3"
-									Grid.Row="4"
-									BorderBrush="#FEE715"
-									BorderThickness="2"
-									Background="#101820"
-									Foreground="#FEE715"
-									TextAlignment="Center"
-									FontSize="40"/>
 						</Grid>
 						<Grid Grid.Column="3"
 								RowDefinitions="Auto, 5, Auto, 5,  Auto">
-							<TextBox Name="GN4"
+							<TextBox Name="GN3"
 									Grid.Row="0"
 									BorderBrush="#FEE715"
 									BorderThickness="2"
@@ -279,16 +271,8 @@
 									Foreground="#FEE715"
 									TextAlignment="Center"
 									FontSize="40"/>
-							<TextBox Name="GN5"
+							<TextBox Name="GN4"
 									Grid.Row="2"
-									BorderBrush="#FEE715"
-									BorderThickness="2"
-									Background="#101820"
-									Foreground="#FEE715"
-									TextAlignment="Center"
-									FontSize="40"/>
-							<TextBox Name="GN6"
-									Grid.Row="4"
 									BorderBrush="#FEE715"
 									BorderThickness="2"
 									Background="#101820"
@@ -298,7 +282,7 @@
 						</Grid>
 						<Grid Grid.Column="5"
 								RowDefinitions="Auto, 5, Auto, 5,  Auto">
-							<TextBox Name="GN7"
+							<TextBox Name="GN5"
 									Grid.Row="0"
 									BorderBrush="#FEE715"
 									BorderThickness="2"
@@ -306,16 +290,8 @@
 									Foreground="#FEE715"
 									TextAlignment="Center"
 									FontSize="40"/>
-							<TextBox Name="GN8"
+							<TextBox Name="GN6"
 									Grid.Row="2"
-									BorderBrush="#FEE715"
-									BorderThickness="2"
-									Background="#101820"
-									Foreground="#FEE715"
-									TextAlignment="Center"
-									FontSize="40"/>
-							<TextBox Name="GN9"
-									Grid.Row="4"
 									BorderBrush="#FEE715"
 									BorderThickness="2"
 									Background="#101820"
@@ -356,7 +332,7 @@
 			<!--UI3(GRAPHS)_2-->
 
 			<Grid Name="UI3_2"
-					IsVisible="False"
+					IsVisible="false"
 					RowDefinitions="Auto, *, Auto">
 
 				<!--Title-->
@@ -438,18 +414,57 @@
 								Click="searchGN">
 							SEARCH
 						</Button>
-						<TextBox Grid.Column="3"
-									Width="176"
-									BorderBrush="#FEE715"
-									BorderThickness="2"
-									Background="#101820"
-									Foreground="#FEE715"
-									Watermark="NODE"
-									TextAlignment="Center"
-									FontSize="28"/>
+						<TextBox Name="SV"
+								Grid.Column="3"
+								Width="176"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="NODE"
+								TextAlignment="Center"
+								FontSize="28"/>
 						</Grid>
 					<Grid Grid.Row="4"
 							ColumnDefinitions="*, Auto, 5, Auto, *">
+						<Button Grid.Column="1"
+								Background="#FEE715"
+								Foreground="#101820"
+								Width="176"
+								Height="73"
+								FontSize="45"
+								FontWeight="Black"
+								HorizontalContentAlignment="Center"
+								VerticalContentAlignment="Center"
+								Click="shortest">
+							SHORT
+						</Button>
+						<Grid Grid.Column="3"
+							  RowDefinitions="Auto, 3, Auto">
+							<TextBox Name="toSP"
+								Grid.Row="0"
+								Width="176"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="FROM"
+								TextAlignment="Center"
+								FontSize="15"/>
+							<TextBox Name="fromSP"
+								Grid.Row="2"
+								Width="176"
+								BorderBrush="#FEE715"
+								BorderThickness="2"
+								Background="#101820"
+								Foreground="#FEE715"
+								Watermark="TO"
+								TextAlignment="Center"
+								FontSize="15"/>
+						</Grid>
+					</Grid>
+					<Grid Grid.Row="6"
+						  ColumnDefinitions="*, Auto, 5, Auto, *">
 						<Button Grid.Column="1"
 								Background="#FEE715"
 								Foreground="#101820"
@@ -462,17 +477,6 @@
 						</Button>
 						<Button Grid.Column="3"
 								Background="#FEE715"
-								Foreground="#101820"
-								Width="176"
-								FontSize="30"
-								FontWeight="Black"
-								HorizontalContentAlignment="Center"
-								Click="shortest">
-							SHORT P.
-						</Button>
-					</Grid>
-					<Grid Grid.Row="6">
-						<Button Background="#FEE715"
 								Foreground="#101820"
 								Width="176"
 								FontSize="30"
@@ -543,17 +547,16 @@
 				<TextBlock Name="PTR2"
 						   Grid.Row="1"
 						   Foreground="#FEE715"
-						   FontSize="40"
+						   FontSize="25"
 						   FontWeight="Black"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center"
 						   TextAlignment="Center">
-					binaryTree.InOrderTraversal();
 				</TextBlock>
 				<TextBlock Name="PTR3"
 						   Grid.Row="2"
 						   Foreground="#FEE715"
-						   FontSize="40"
+						   FontSize="25"
 						   FontWeight="Black"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center"
@@ -562,7 +565,92 @@
 				<TextBlock Name="PTR4"
 						   Grid.Row="4"
 						   Foreground="#FEE715"
+						   FontSize="25"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+			</Grid>
+				<Grid Name="searchIG"
+					  IsVisible="False"
+					  Grid.Row="0">
+					<TextBlock Name="SGR"
+							   Foreground="#FEE715"
+							   FontSize="40"
+							   FontWeight="Black"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   TextAlignment="Center">
+					</TextBlock>
+				</Grid>
+			<Grid Name="BDR"
+				  IsVisible="False"
+				  Grid.Row="0"
+				  RowDefinitions="Auto, Auto ,Auto, Auto">
+				<TextBlock Foreground="#FEE715"
+						   Grid.Row="0"
 						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+					BFS
+				</TextBlock>
+				<TextBlock Name="BFS"
+						   Grid.Row="1"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Foreground="#FEE715"
+						   Grid.Row="2"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+					DFS
+				</TextBlock>
+				<TextBlock Name="DFS"
+						   Grid.Row="3"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+			</Grid>
+			<Grid Name="SPG"
+				  IsVisible="False"
+				  Grid.Row="0"
+				  RowDefinitions="Auto, Auto, Auto">
+				<TextBlock Grid.Row="0"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+					SHORTEST PATH:
+				</TextBlock>
+				<TextBlock Name="SPGR"
+						   Grid.Row="1"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="SPGR2"
+						   Grid.Row="2"
+						   Foreground="#FEE715"
+						   FontSize="20"
 						   FontWeight="Black"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center"
@@ -571,10 +659,93 @@
 			</Grid>
 			<Grid Name="PG"
 				  IsVisible="False"
-				  Grid.Row="0">
-				<TextBlock Name="PGR"
+				  Grid.Row="0"
+				  RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+				<TextBlock Grid.Row="0"
 						   Foreground="#FEE715"
 						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+					GRAPH
+				</TextBlock>
+				<TextBlock Name="PGR"
+						   Grid.Row="1"
+						   Foreground="#FEE715"
+						   FontSize="20"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Grid.Row="2"
+						   Foreground="#FEE715"
+						   FontSize="40"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+					MATRIX
+				</TextBlock>
+				<TextBlock Name="M1"
+						   Grid.Row="3"
+						   Foreground="#FEE715"
+						   FontSize="20"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="M2"
+						   Grid.Row="4"
+						   Foreground="#FEE715"
+						   FontSize="20"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="M3"
+						   Grid.Row="5"
+						   Foreground="#FEE715"
+						   FontSize="20"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="M4"
+						   Grid.Row="6"
+						   Foreground="#FEE715"
+						   FontSize="20"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="M5"
+						   Grid.Row="7"
+						   Foreground="#FEE715"
+						   FontSize="20"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="M6"
+						   Grid.Row="8"
+						   Foreground="#FEE715"
+						   FontSize="20"
+						   FontWeight="Black"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   TextAlignment="Center">
+				</TextBlock>
+				<TextBlock Name="M7"
+						   Grid.Row="9"
+						   Foreground="#FEE715"
+						   FontSize="20"
 						   FontWeight="Black"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center"

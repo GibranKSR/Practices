@@ -5,6 +5,13 @@ namespace BinaryTree
     public class BinaryTree
     {
         private TreeNode root;
+
+        public List<String> IOT = new List<string>();
+        public List<String> PT = new List<string>();
+        public List<String> POT = new List<string>();
+        public string combinedString;
+        public string combinedString2;
+        public string combinedString3;
         public TreeNode Root
         {
             get { return root; }
@@ -165,19 +172,22 @@ namespace BinaryTree
         public void InOrderTraversal()
         {
             if (root != null)
-                root.InOrderTraversal();
+                root.InOrderTraversal(IOT);
+            combinedString = string.Join(",", IOT);
         }
 
        public void PreorderTraversal()
         {
             if (root != null)
-                root.PreOrderTraversal();
+                root.PreOrderTraversal(PT);
+            combinedString2 = string.Join(",", PT);
         }
 
         public void PostorderTraversal()
         {
             if (root != null)
-                root.PostorderTraversal();
+                root.PostorderTraversal(POT);
+            combinedString3 = string.Join(",", POT);
         }
 
         public int Height()

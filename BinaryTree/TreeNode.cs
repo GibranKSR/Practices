@@ -6,6 +6,7 @@ namespace BinaryTree
     {
         public string dir;
         private int data;
+
         public int Data
         {
             get { return data; }
@@ -77,31 +78,45 @@ namespace BinaryTree
                 }
             }
         }
-        public void InOrderTraversal()
+        public void InOrderTraversal(List<String> IOT)
         {
             if (leftNode != null)
-                leftNode.InOrderTraversal();
-            Console.Write(data + " ");
+            {
+                leftNode.InOrderTraversal(IOT);
+            }
+
+            IOT.Add(data.ToString());
 
             if (rightNode != null)
-                rightNode.InOrderTraversal();
+            {
+                rightNode.InOrderTraversal(IOT);
+            }
         }
-        public void PreOrderTraversal()
+        public void PreOrderTraversal(List<String> PT)
         {
-            Console.Write(data + " ");
+           PT.Add(data.ToString());
 
             if (leftNode != null)
             {
-               leftNode.PreOrderTraversal();
+               leftNode.PreOrderTraversal(PT);
             }
 
             if (rightNode != null)
             {
-                rightNode.PreOrderTraversal();
+                rightNode.PreOrderTraversal(PT);
             }
 
         }
+        public void PostorderTraversal(List<String> POT)
+        {
+            if (leftNode != null)
+                leftNode.PostorderTraversal(POT);
 
+            if (rightNode != null)
+                rightNode.PostorderTraversal(POT);
+
+            POT.Add(data.ToString());
+        }
         public void PrintTree()
         {
             Console.Write(dir + data + "\n");
@@ -118,16 +133,6 @@ namespace BinaryTree
                 rightNode.PrintTree();
             }
 
-        }
-        public void PostorderTraversal()
-        {
-            if (leftNode != null)
-                leftNode.PostorderTraversal();
-
-            if (rightNode != null)
-                rightNode.PostorderTraversal();
-
-            Console.Write(data + " ");
         }
 
         public int Height()

@@ -17,6 +17,31 @@ namespace Graphs
     {
         public Vertex? root { get; set; }
         public List<Vertex> vertexes = new List<Vertex>();
+        public string searchedValue;
+        public List<String> BFSL = new List<String>();
+        public string BFSLS;
+        public List<String> DFSL = new List<String>();
+        public string DFSLS;
+        public List<String> SPL = new List<String>();
+        public string SPLS;
+        public List<String> SPL2 = new List<String>();
+        public string SPLS2;
+        public List<String> VL = new List<String>();
+        public string VLS;
+        public String[] M1 = new String[7];
+        public string M1S;
+        public String[] M2 = new String[7];
+        public string M2S;
+        public String[] M3 = new String[7];
+        public string M3S;
+        public String[] M4 = new String[7];
+        public string M4S;
+        public String[] M5 = new String[7];
+        public string M5S;
+        public String[] M6 = new String[7];
+        public string M6S;
+        public String[] M7 = new String[7];
+        public string M7S;
 
         public void insert(Vertex vertex, Vertex onVertex, int wei)
         {
@@ -81,7 +106,7 @@ namespace Graphs
             {
                 if (v.data.Equals(data))
                 {
-                    Console.WriteLine("Value found: " + v.data);
+                    searchedValue = v.data;
                 }
             }
             foreach (Vertex v in vertexes)
@@ -99,35 +124,129 @@ namespace Graphs
         {
             foreach (Vertex v in vertexes)
             {
-                Console.WriteLine("["+v.data+"]");
+                String temp = "[" + v.data + "]";
+                VL.Add(temp);
             }
+
+            VLS = String.Join(",", VL);
         }
 
 
         public void matrix()
         {
-            Console.Write("   ");
-            for (int i = 0; i < vertexes.Count(); i++)
+            M1[0] = "   ";
+            for (int i = 1; i <= vertexes.Count(); i++)
             {
-                Console.Write(" " +"["+vertexes[i].data+"]");
+                M1[i] = " " + "[" + vertexes[i-1].data + "]";
             }
             for (int i = 0; i < vertexes.Count(); i++)
             {
-                Console.WriteLine(" ");
-                Console.Write("[" + vertexes[i].data + "]");
-                for (int j = 0; j < vertexes.Count(); j++)
+                if (i == 0)
                 {
+                    M2[0] = "[" + vertexes[i].data + "]";
+                    for (int j = 1; j < vertexes.Count(); j++)
+                    {
 
-                    if (vertexes[j].vertexes.Contains(vertexes[i]))
-                    {
-                        Console.Write(" [1]");
+                        if (vertexes[j].vertexes.Contains(vertexes[i]))
+                        {
+                            M2[j] = " [1]";
+                        }
+                        else
+                        {
+                            M2[j] = " [0]";
+                        }
                     }
-                    else
+                }
+                if (i == 1)
+                {
+                    M3[0] = "[" + vertexes[i].data + "]";
+                    for (int j = 1; j < vertexes.Count(); j++)
                     {
-                        Console.Write(" [0]");
+
+                        if (vertexes[j].vertexes.Contains(vertexes[i]))
+                        {
+                            M3[j] = " [1]";
+                        }
+                        else
+                        {
+                            M3[j] = " [0]";
+                        }
+                    }
+                }
+                if (i == 2)
+                {
+                    M4[0] = "[" + vertexes[i].data + "]";
+                    for (int j = 1; j < vertexes.Count(); j++)
+                    {
+
+                        if (vertexes[j].vertexes.Contains(vertexes[i]))
+                        {
+                            M4[j] = " [1]";
+                        }
+                        else
+                        {
+                            M4[j] = " [0]";
+                        }
+                    }
+                }
+                if (i == 3)
+                {
+                    M5[0] = "[" + vertexes[i].data + "]";
+                    for (int j = 1; j < vertexes.Count(); j++)
+                    {
+
+                        if (vertexes[j].vertexes.Contains(vertexes[i]))
+                        {
+                            M5[j] = " [1]";
+                        }
+                        else
+                        {
+                            M5[j] = " [0]";
+                        }
+                    }
+                }
+                if (i == 4)
+                {
+                    M6[0] = "[" + vertexes[i].data + "]";
+                    for (int j = 1; j < vertexes.Count(); j++)
+                    {
+
+                        if (vertexes[j].vertexes.Contains(vertexes[i]))
+                        {
+                            M6[j] = " [1]";
+                        }
+                        else
+                        {
+                            M6[j] = " [0]";
+                        }
+                    }
+                }
+                if (i == 5)
+                {
+                    M7[0] = "[" + vertexes[i].data + "]";
+                    for (int j = 1; j < vertexes.Count(); j++)
+                    {
+
+                        if (vertexes[j].vertexes.Contains(vertexes[i]))
+                        {
+                            M7[j] = " [1]";
+                        }
+                        else
+                        {
+                            M7[j] = " [0]";
+                        }
                     }
                 }
             }
+
+            M1S = String.Join(" ", M1);
+            M2S = String.Join(" ", M2);
+            M3S = String.Join(" ", M3);
+            M4S = String.Join(" ", M4);
+            M5S = String.Join(" ", M5);
+            M6S = String.Join(" ", M6);
+            M7S = String.Join(" ", M7); 
+
         }
         public void bfs(Vertex vertex)
         {
@@ -140,7 +259,7 @@ namespace Graphs
             while (queue.Count != 0)
             {
                 vertex = queue.First();
-                Console.WriteLine("next-> " + vertex.data);
+                BFSL.Add(vertex.data);
                 queue.RemoveFirst();
 
                 foreach (Vertex v in vertex.vertexes)
@@ -153,6 +272,8 @@ namespace Graphs
                 }
             }
 
+            BFSLS = string.Join(",", BFSL);
+
         }
         public void dfs(Vertex vertex)
         {
@@ -164,7 +285,7 @@ namespace Graphs
             while (stack.Count != 0)
             {
                 vertex = stack.Pop();
-                Console.WriteLine("next-> " + vertex.data);
+                DFSL.Add(vertex.data);
                 foreach (Vertex v in vertex.vertexes)
                 {
                     if (!visited.Contains(v))
@@ -174,6 +295,7 @@ namespace Graphs
                     }
                 }
             }
+            DFSLS = string.Join(",", DFSL);
         }
 
 
@@ -220,8 +342,6 @@ namespace Graphs
                     break;
                 }
             }
-
-            Console.WriteLine(" ");
 
             foreach (Vertex v in final)
             {
@@ -273,7 +393,6 @@ namespace Graphs
                     }
                 }
 
-                Console.WriteLine(" ");
                 foreach (Vertex v in final2)
                 {
                     foreach (Edge e in v.edges)
@@ -287,21 +406,17 @@ namespace Graphs
                 }
             }
 
-
-
-            Console.WriteLine(" ");
             if (sum < sum2)
             {
                 foreach (Vertex v in path)
                 {
-                    Console.WriteLine(v.data);
+                    SPL.Add(v.data);
                     if (v.data.Equals("A"))
                     {
                         break;
                     }
                 }
 
-                Console.WriteLine(" ");
 
                 foreach (Vertex v in final)
                 {
@@ -309,13 +424,13 @@ namespace Graphs
                     {
                         if (final.Contains(e.from) && final.Contains(e.to))
                         {
-                            Console.WriteLine(e.from.data + "-> " + e.fee + " <-" + e.to.data);
+                            string R = e.from.data + "-> " + e.fee + " <-" + e.to.data;
+                            SPL2.Add(R);
                         }
 
                     }
                 }
-                Console.WriteLine(" ");
-                Console.WriteLine(sum);
+                SPL.Add(sum.ToString());
             }
 
 
@@ -330,28 +445,23 @@ namespace Graphs
                     }
                 }
 
-                Console.WriteLine(" ");
                 foreach (Vertex v in final2)
                 {
                     foreach (Edge e in v.edges)
                     {
                         if (final2.Contains(e.from) && final2.Contains(e.to))
                         {
-                            Console.WriteLine(e.from.data + "-> " + e.fee + " <-" + e.to.data);
+                            string R = e.from.data + "-> " + e.fee + " <-" + e.to.data;
+                            SPL2.Add(R);
                         }
 
                     }
                 }
-                Console.WriteLine(" ");
-                Console.WriteLine(sum2);
+                SPL.Add(sum2.ToString());
             }
 
-
-            if (sum == sum2)
-            {
-                Console.WriteLine(sum + " " + sum2);
-            }
-
+            SPLS = string.Join(",", SPL);
+            SPLS2 = string.Join(",", SPL2);
         }
     }
 }
